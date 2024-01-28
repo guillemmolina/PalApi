@@ -1,0 +1,14 @@
+server:
+  port: 5432
+
+spring:
+  datasource:
+    url: jdbc:postgresql://dpg-cmqkh0f109ks73fd7tlg-a.frankfurt-postgres.render.com:5432/palworld_7urx
+    username: palworld_7urx_user
+    password: 8xAb85TM7Y3AeBexhoV1bz7bRbGTy5Wg
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
