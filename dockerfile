@@ -1,14 +1,14 @@
-# Utiliza la imagen de OpenJDK 11 como base
-FROM openjdk:17-oracle
+# Usa una imagen base de Java
+FROM adoptopenjdk:17-jre-hotspot
 
 # Establece el directorio de trabajo en /app
 WORKDIR /app
 
-# Copia el archivo JAR construido en el directorio target de tu proyecto
-COPY target/pal-api-0.0.1-SNAPSHOT.jar app.jar
+# Copia el archivo JAR de tu aplicación al contenedor
+COPY target/pal-api-0.0.1-SNAPSHOT.jar /app
 
-# Expone el puerto en el que tu aplicación Spring Boot está escuchando
-EXPOSE 8089
+# Expone el puerto en el que tu aplicación Spring Boot escucha
+EXPOSE 8080
 
-# Comando para ejecutar la aplicación al iniciar el contenedor
-CMD ["java", "-jar", "app.jar"]
+# Comando para ejecutar la aplicación Spring Boot cuando se inicia el contenedor
+CMD ["java", "-jar", "your-spring-boot-app.jar"]
