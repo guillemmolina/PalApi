@@ -8,7 +8,8 @@ WORKDIR /app
 COPY target/pal-api-0.0.1-SNAPSHOT.jar /app
 
 # Expone el puerto en el que tu aplicación Spring Boot escucha
-EXPOSE 8080
 
-# Comando para ejecutar la aplicación Spring Boot cuando se inicia el contenedor
-CMD ["java", "-jar", "pal-api-0.0.1-SNAPSHOT.jar"]
+
+ENTRYPOINT ["java", "-jar", "pal-api-0.0.1-SNAPSHOT.jar"]
+
+EXPOSE 8080
