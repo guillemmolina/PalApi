@@ -1,5 +1,5 @@
 # Usa una imagen base de Java
-FROM adoptopenjdk:17-jre-hotspot
+FROM adoptopenjdk:20-jre-hotspot
 
 # Establece el directorio de trabajo en /app
 WORKDIR /app
@@ -11,4 +11,4 @@ COPY target/pal-api-0.0.1-SNAPSHOT.jar /app
 EXPOSE 8080
 
 # Comando para ejecutar la aplicación Spring Boot cuando se inicia el contenedor
-CMD ["java", "-jar", "your-spring-boot-app.jar"]
+CMD ["java", "-jar", "pal-api-0.0.1-SNAPSHOT.jar"]
