@@ -1,24 +1,14 @@
-# Use an official Maven image with Java 17 as the base image
-FROM maven:3.8.4-openjdk-17-slim AS build
+# Utiliza una imagen base de OpenJDK 17 con HotSpot
+FROM openjdk:17-jre-slim
 
-# Set the working directory in the container
+# Establece el directorio de trabajo en /app
 WORKDIR /app
 
-# Copy the pom.xml and the project files to the container
-COPY pom.xml .
-COPY src ./src
+# Copia el archivo JAR de tu aplicación al contenedor
+COPY target/pal-api-0.0.1-SNAPSHOT.jar /app
 
-# Build the application using Maven
-RUN mvn clean package -DskipTests
+# Expone el puerto en el que tu aplicación Spring Boot escucha
+EXPOSE 8080
 
-# Use an official OpenJDK image with Java 17 as the base image
-FROM adoptopenjdk:17-jre-hotspot
-
-# Set the working directory in the container
-WORKDIR /app
-
-# Copy the built JAR file from the previous stage to the container
-COPY --from=build /app/target/pal-api-0.0.1-SNAPSHOT.jar .
-
-# Set the command to run the application
+# Comando para ejecutar la aplicación Spring Boot cuando se inicia el contenedor
 CMD ["java", "-jar", "pal-api-0.0.1-SNAPSHOT.jar"]
