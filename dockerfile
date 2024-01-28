@@ -1,14 +1,17 @@
-# Use a base image of OpenJDK 17 with HotSpot
-FROM openjdk:17-jdk
+# Utiliza una imagen base de OpenJDK 17 con HotSpot
+FROM adoptopenjdk:17-jre-hotspot
 
-# Set the working directory to /app
+# Establece el directorio de trabajo en /app
 WORKDIR /app
 
-# Copy the JAR file of your application into the container
+# Copia el archivo JAR de tu aplicación al contenedor
 COPY target/pal-api-0.0.1-SNAPSHOT.jar /app
 
-# Expose the port on which your Spring Boot application listens
+# Expone el puerto en el que tu aplicación Spring Boot escucha
 EXPOSE 8080
 
-# Command to run the application
-ENTRYPOINT ["java", "-jar", "pal-api-0.0.1-SNAPSHOT.jar"]
+# Deshabilita el caché durante la construcción
+ARG CACHEBUST=1
+
+# Comando para ejecutar la aplicación Spring Boot cuando se inicia el contenedor
+CMD ["java", "-jar", "pal-api-0.0.1-SNAPSHOT.jar"]
