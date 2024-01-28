@@ -1,5 +1,5 @@
 # Utiliza una imagen base de OpenJDK 17 con HotSpot
-FROM openjdk:17-jre-slim
+FROM eclipse-temurin:17-jre-alpine
 
 # Establece el directorio de trabajo en /app
 WORKDIR /app
