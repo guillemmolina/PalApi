@@ -1,4 +1,4 @@
-# Usa una imagen base de Java
+# Utiliza una imagen base de OpenJDK 17 con HotSpot
 FROM adoptopenjdk:17-jre-hotspot
 
 # Establece el directorio de trabajo en /app
