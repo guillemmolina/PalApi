@@ -5,8 +5,7 @@ FROM openjdk:17-jdk
 WORKDIR /app
 
 # Copy the JAR file of your application into the container
-COPY target/pal-api-0.0.1-SNAPSHOT.jar /app
-
+COPY target/pal-api-0.0.1-SNAPSHOT.jar pal-api-0.0.1-SNAPSHOT.jar
 # Expose the port on which your Spring Boot application listens
 EXPOSE 8080
 
