@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/pals")
+@RequestMapping("/pals-info")
 @AllArgsConstructor
 public class PalController {
 

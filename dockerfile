@@ -1,14 +1,14 @@
-# Utiliza una imagen base de OpenJDK 17 con HotSpot
-FROM eclipse-temurin:17-jre-alpine
+# Use a base image of OpenJDK 17 with HotSpot
+FROM openjdk:17-jdk
 
-# Establece el directorio de trabajo en /app
+# Set the working directory to /app
 WORKDIR /app
 
-# Copia el archivo JAR de tu aplicación al contenedor
+# Copy the JAR file of your application into the container
 COPY target/pal-api-0.0.1-SNAPSHOT.jar /app
 
-# Expone el puerto en el que tu aplicación Spring Boot escucha
+# Expose the port on which your Spring Boot application listens
 EXPOSE 8080
 
-# Comando para ejecutar la aplicación Spring Boot cuando se inicia el contenedor
-CMD ["java", "-jar", "pal-api-0.0.1-SNAPSHOT.jar"]
+# Command to run the application
+ENTRYPOINT ["java", "-jar", "pal-api-0.0.1-SNAPSHOT.jar"]
