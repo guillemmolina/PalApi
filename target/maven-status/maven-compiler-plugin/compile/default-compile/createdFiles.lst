@@ -1,0 +1,6 @@
+com\guidev\palapi\repository\PalRepository.class
+com\guidev\palapi\controller\PalController.class
+com\guidev\palapi\configuration\CorsConfig.class
+com\guidev\palapi\service\PalService.class
+com\guidev\palapi\PalApiApplication.class
+com\guidev\palapi\entity\PalEntity.class
